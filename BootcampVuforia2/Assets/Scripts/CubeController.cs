@@ -11,9 +11,11 @@ public class CubeController : MonoBehaviour {
 
 	public GameObject targetToFollow;
 	// Use this for initialization
-	private TransformMode mode = TransformMode.Translate;
+	private TransformMode mode = TransformMode.Rotate;
 
 	Vector3 targetLastPos;
+	Quaternion targetLastRot;
+
 	void Start () {
 		targetLastPos = targetToFollow.transform.position;
 	}
@@ -29,24 +31,19 @@ public class CubeController : MonoBehaviour {
 		}
 
 		if (mode == TransformMode.Translate) {
-			//Debug.Log ("cube x " + transform.position.x);
-			//Debug.Log ("target from cube x " + targetToFollow.transform.position.x);
 			Vector3 translationAmount = targetToFollow.transform.position - targetLastPos;
-			//transform.position = targetToFollow.transform.position;
-			transform.position += translationAmount;
-			targetLastPos = targetToFollow.transform.position;
+			transform.Translate(translationAmount, Space.World);
 		} else if (mode == TransformMode.Rotate) {
-			transform.rotation = targetToFollow.transform.rotation;
+			Quaternion rotationAmount = targetToFollow.transform.rotation * Quaternion.Inverse(targetLastRot);
+			transform.Rotate(rotationAmount.eulerAngles, Space.World);
 		} else {
-
-			//left it gets small, right it gets big
-			float scaleFactor = targetToFollow.transform.position.x;
-			scaleFactor = scaleFactor > 0 ? scaleFactor : 0;
-			//Debug.Log ("scalefactor " + scaleFactor);
-			Vector3 myNewScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
-			//Vector3 lol = Vector3 (2, 2, 2);
-			transform.localScale = myNewScale;
+			//gets bigger as you move horizontally away from x = 0
+			float scaleFactor = targetToFollow.transform.position.x - targetLastPos.x;
+			Vector3 scaleIncrease = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
+			transform.localScale = transform.localScale + scaleIncrease;
 		}
+		targetLastPos = targetToFollow.transform.position;
+		targetLastRot = targetToFollow.transform.rotation;
 
 	}
 }

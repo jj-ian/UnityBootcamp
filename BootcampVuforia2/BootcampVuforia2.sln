@@ -1,11 +1,11 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampVuforia2", "Assembly-CSharp.csproj", "{4B86010D-96DD-5410-F2F1-0838E8FFFDED}"
+# Visual Studio 2008
+
+Project("{79928F96-4413-09DF-7163-78BD9534923E}") = "BootcampVuforia2", "Assembly-CSharp.csproj", "{4B86010D-96DD-5410-F2F1-0838E8FFFDED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampVuforia2", "Assembly-CSharp-Editor.csproj", "{C9611565-B9AD-E159-402A-6BB8DD1B05F3}"
+Project("{79928F96-4413-09DF-7163-78BD9534923E}") = "BootcampVuforia2", "Assembly-CSharp-Editor.csproj", "{C9611565-B9AD-E159-402A-6BB8DD1B05F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampVuforia2", "Assembly-UnityScript-Editor-firstpass.unityproj", "{32F5680E-B0AC-2F1C-6F96-302D73CAD506}"
+Project("{79928F96-4413-09DF-7163-78BD9534923E}") = "BootcampVuforia2", "Assembly-UnityScript-Editor-firstpass.unityproj", "{32F5680E-B0AC-2F1C-6F96-302D73CAD506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
